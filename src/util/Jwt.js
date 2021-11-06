@@ -13,13 +13,13 @@ export const generateToken = (payload, secretSignature, options) => {
     })
 }
 
-export const verifyToken = (token) => {
+export const verifyToken = (token, secretSignature) => {
     return new Promise((resolve, reject) => {
-        jwt.verify(token, config.JWT_SECRET, (err, results) => {
+        jwt.verify(token, secretSignature, (err, results) => {
             if (!err) {
-                resolve(results)
+                return resolve(results)
             }
-            reject(err)
+            return reject(err)
         })
     })
 }

@@ -1,3 +1,4 @@
 export const TOKEN = {
-    TOKEN_EXPIRED: 60 // 1 Day
+    TOKEN_EXPIRED: 300, // 1 Day
+    REFRESH_TOKEN: 86400
 }
