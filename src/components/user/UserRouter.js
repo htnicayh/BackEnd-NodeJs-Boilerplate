@@ -1,6 +1,6 @@
 import { Router } from 'express'
-import { jwtFilter } from '../../middleware/Authenticate.js'
-import { isAdmin } from '../../middleware/Authorize.js'
+import { jwtFilter } from '../../middleware/authenticate.js'
+import { isAdmin } from '../../middleware/authorize.js'
 import * as userController from './UserController.js'
 
 const router = Router();

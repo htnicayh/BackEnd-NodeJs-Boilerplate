@@ -1,4 +1,4 @@
-import { STATUS } from "../constant/Status.js"
+import { STATUS } from "../constant/status.js"
 
 export const response = 
     (DATA,

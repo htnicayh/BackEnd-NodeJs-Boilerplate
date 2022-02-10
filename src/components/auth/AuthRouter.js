@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import * as authController from './AuthController.js'
-import { jwtFilter } from '../../middleware/Authenticate.js'
+import { jwtFilter } from '../../middleware/authenticate.js'
 
 const router = Router();
 const path = '/auth'

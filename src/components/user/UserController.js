@@ -1,6 +1,6 @@
 import * as userDAL from './UserDAL.js'
-import { response } from '../../util/Response.js'
-import { ERRORS } from '../../constant/Error.js'
+import { response } from '../../utils/response.js'
+import { ERRORS } from '../../constant/error.js'
 
 export const getUser = async (req, res, next) => {
     const { verifyToken } = req

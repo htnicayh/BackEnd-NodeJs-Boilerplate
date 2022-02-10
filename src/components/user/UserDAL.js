@@ -1,17 +1,17 @@
-import * as database from '../../util/Database.js'
-import * as bcrypt from '../../util/Bcrypt.js'
-import { ERRORS } from '../../constant/Error.js'
+import { query, queryOne } from '../../utils/database.js'
+import { hash } from '../../utils/hash.js'
+import { ERRORS } from '../../constant/error.js'
 
 export const getUserById = async (userId) => {
     const sql = 'SELECT * FROM account WHERE id = ?'
-    const result = await database.queryOne(sql, [userId])
+    const result = await queryOne(sql, [userId])
     delete result.password
     return result
 }
 
 export const getAllUser = async () => {
     const sql = 'SELECT * FROM account'
-    const results = await database.query(sql, [])
+    const results = await query(sql, [])
     for (let i = 0; i < results.length; i++) {
         delete results[i].password
         delete results[i].role
@@ -27,7 +27,7 @@ export const updateUser = async (userId, payload) => {
         params.push(payload.name)
     }
     if (payload.password) {
-        let hashPw = await bcrypt.hash(payload.password)
+        let hashPw = await hash(payload.password)
         sqlQuery += ', password = ?'
         params.push(hashPw)
     }
@@ -58,6 +58,6 @@ export const updateUser = async (userId, payload) => {
     }
     let sql = sqlQuery + ' WHERE userId = ?'
     params.push(userId)
-    const result = await database.queryOne(sql, params)
+    const result = await queryOne(sql, params)
     return result
 }

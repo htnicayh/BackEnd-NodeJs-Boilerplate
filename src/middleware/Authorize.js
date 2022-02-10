@@ -1,4 +1,4 @@
-import { ERRORS } from "../constant/Error.js";
+import { ERRORS } from "../constant/error.js"
 
 export const isAdmin = (req, res, next) => {
     const verifyToken = req.verifyToken
